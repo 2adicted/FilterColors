@@ -1,0 +1,113 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:tk="http://schemas.xceed.com/wpf/xaml/toolkit"
+         xmlns:xc="clr-namespace:WpfApplication1"
+         xc:DialogCloser.DialogResult="{Binding DialogResult}"
+         mc:Ignorable="d"
+         Title="Assign Filters" Height="350" Width="525" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Background="White">
+
+    <Window.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="tk:SplitButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="22"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Border Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                        <RowDefinition Height="*" MinHeight="30" />
+                    </Grid.RowDefinitions>
+                    <!--Labels-->
+                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Visibility"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="Projection Line"/>
+                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Projection Fill"/>
+                    <TextBlock Grid.Column="0" Grid.Row="3" Text="Transparency"/>
+                    <TextBlock Grid.Column="0" Grid.Row="4" Text="Cut Line"/>
+                    <TextBlock Grid.Column="0" Grid.Row="5" Text="Cut Fill"/>
+                    <TextBlock Grid.Column="0" Grid.Row="6" Text="Halftone"/>
+                    <!--Visibility Controls-->
+                    <CheckBox Grid.Row="0" Grid.Column="3"/>
+                    <!--Projection Line Controls-->
+                    <ComboBox Grid.Column="1" Grid.Row="1"/>
+                    <tk:SplitButton Grid.Column="2"  Grid.Row="1" Content="Pick a Color">
+                        <tk:SplitButton.DropDownContent>
+                            <tk:ColorCanvas />
+                        </tk:SplitButton.DropDownContent>
+                    </tk:SplitButton>
+                    <CheckBox Grid.Column="3" Grid.Row="1"/>
+                    <!--Projection Fill Controls-->
+                    <ComboBox Grid.Column="1" Grid.Row="2"/>
+                    <tk:SplitButton Grid.Column="2"  Grid.Row="2" Content="Pick a Color">
+                        <tk:SplitButton.DropDownContent>
+                            <tk:ColorCanvas />
+                        </tk:SplitButton.DropDownContent>
+                    </tk:SplitButton>
+                    <CheckBox Grid.Column="3" Grid.Row="2"/>
+                    <!--Transparency Controls-->
+                    <Slider Grid.Column="1" Grid.Row="3" Margin="8 2" Grid.ColumnSpan="2" Maximum="100" TickPlacement="BottomRight" TickFrequency="5"/>
+                    <CheckBox Grid.Row="3" Grid.Column="3"/>
+                    <!--Cut Line Controls-->
+                    <ComboBox Grid.Column="1" Grid.Row="4"/>
+                    <tk:SplitButton Grid.Column="2"  Grid.Row="4" Content="Pick a Color">
+                        <tk:SplitButton.DropDownContent>
+                            <tk:ColorCanvas />
+                        </tk:SplitButton.DropDownContent>
+                    </tk:SplitButton>
+                    <CheckBox Grid.Column="3" Grid.Row="4"/>
+                    <!--Cut Fill Controls-->
+                    <ComboBox Grid.Column="1" Grid.Row="5"/>
+                    <tk:SplitButton Grid.Column="2"  Grid.Row="5" Content="Pick a Color">
+                        <tk:SplitButton.DropDownContent>
+                            <tk:ColorCanvas />
+                        </tk:SplitButton.DropDownContent>
+                    </tk:SplitButton>
+                    <CheckBox Grid.Column="3" Grid.Row="5"/>
+                    <!--Halftone Controls-->
+                    <CheckBox Grid.Row="6" Grid.Column="3"/>
+                </Grid>
+            </StackPanel>
+            <!--OK and Cancel Buttons-->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" >
+                <Button Content="OK" Width="75" VerticalAlignment="Bottom" Margin="0 0 10 10" />
+                <Button Content="Cancel" Width="75" VerticalAlignment="Bottom" Margin="0 0 10 10"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
